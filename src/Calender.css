@@ -1,0 +1,72 @@
+.calender-container {
+  max-width: 80%; /* Set a maximum width for the calendar */
+  margin: 0 auto; /* Center the calendar on the screen */
+  margin-top: 100px;
+}
+
+.calender-header {
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.calender-header button {
+  cursor: pointer;
+  background-color: var(--color-light);
+  color: var(--color-bg);
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  padding: 10px;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.calender-header h2 {
+  color: var(--color-light);
+  font-size: 2rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+.calender-table {
+  padding-top: 1rem;
+  border-radius: 1rem;
+  background-color: var(--color-light);
+  width: 100%; /* Make the table take up 100% of the container width */
+  border-collapse: collapse; /* Collapse table borders */
+}
+.calender-table th {
+  padding-top: 2rem;
+  color: var(--color-bg);
+  font-size: 1.25rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+.calender-cell {
+  margin: 5px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-white);
+  color: var(--color-bg);
+  text-align: center;
+  min-width: 40px; /* Set a minimum width for cells */
+}
+
+.calender-cell span {
+  color: var(--color-bg);
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+.calender-cell p {
+  color: var(--color-bg);
+  font-size: 0.8rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  text-align: end;
+}

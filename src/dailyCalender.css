@@ -1,0 +1,129 @@
+.daily-calendar-container {
+  margin-top: 80px;
+  justify-content: center;
+  max-width: 60%;
+  margin: auto;
+}
+
+.daily-calender-header {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.daily-calender-header h2 {
+  color: var(--color-light);
+  font-size: 1.5rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+.daily-calender-header button {
+  cursor: pointer;
+  background-color: var(--color-light);
+  color: var(--color-bg);
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  padding: 10px;
+  border: none;
+  border-radius: 0.5rem;
+}
+.daily-calender-header button:hover {
+  background-color: var(--color-white);
+}
+
+.header {
+  z-index: 3;
+  position: absolute;
+  color: var(--color-white);
+  padding: 20px;
+}
+.header-values {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  color: var(--color-white);
+  font-size: 1.2rem;
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+
+.header-mainvalue {
+  color: var(--color-light);
+  font-size: 3rem;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.header-entryprice {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  font-family: var(--font-primary);
+  font-weight: 400;
+  padding-bottom: 0.5rem;
+}
+
+.header-closeprice {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+
+.header-date {
+  color: var(--color-light);
+  font-size: 1.5rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  padding-top: 1rem;
+}
+.header img {
+  max-width: 8rem;
+  left: 0;
+}
+
+.day-view {
+  position: relative;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 400px; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(72, 69, 69, 0.5),
+    rgba(255, 255, 255, 0.5)
+  );
+  z-index: 1;
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.daily-calender-no-data {
+  text-align: center;
+  color: rgb(227, 120, 120);
+  font-size: 1.5rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding-top: 1rem;
+}
