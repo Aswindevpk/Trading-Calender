@@ -40,6 +40,8 @@ const getMonthData = async (year, month) => {
           }
           week.push(dayObj);
           dayCounter++;
+        } else {
+          week.push("")
         }
       }
       data.push(week);
@@ -64,6 +66,7 @@ const Calendar = () => {
       try {
         const data = await getMonthData(year, month);
         setMonthData(data);
+        console.log(data)
       } catch (error) {
         // Handle error
         console.error("Error fetching month data:", error);
@@ -83,6 +86,25 @@ const Calendar = () => {
     setYear((prevYear) => (month === 11 ? prevYear + 1 : prevYear));
   };
 
+  const [selectedDay, setSelectedDay] = useState(null);
+
+  const handleDayClick = (day) => {
+    const combinedDate = new Date(year, month, day);
+    setSelectedDay(combinedDate);
+  };
+
+  const calculateSum = (monthData) => {
+    return monthData.reduce((acc, week) => {
+      return acc + week.reduce((weekAcc, day) => {
+        return weekAcc + (parseFloat(day.value, 10) || 0);
+      }, 0);
+    }, 0).toFixed(2);
+  };
+
+
+  const calculateWeekSum = (rowData) => {
+    return rowData.reduce((acc, day) => acc + (parseFloat(day.value, 10) || 0), 0);
+  };
 
   return (
     <div className="calender-container">
@@ -94,13 +116,15 @@ const Calendar = () => {
       <table className="calender-table">
         <thead>
           <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
+            <th>SUNDAY</th>
+            <th>MONDAY</th>
+            <th>TUESDAY</th>
+            <th>WEDNESDAY</th>
+            <th>THURSDAY</th>
+            <th>FRIDAY</th>
+            <th>SATURDAY</th>
+            <th>WEEK P&L</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -110,8 +134,8 @@ const Calendar = () => {
                 <td key={dayIndex}>
                   {day !== '' ? <>
                     {day.value ? <>
-                      <div className='calender-cell' style={{ backgroundColor: Number(day.value) < 0 ? 'rgb(250, 176, 176)' : '#C1F2B0' }}>
-                        <a>
+                      <div className='calender-cell'>
+                        <a href="#" onClick={() => handleDayClick(day.day)}>
                           <span style={{ color: Number(day.value) < 0 ? 'red' : 'green' }}>{day.value}</span><br></br>
                           <p>{day.day}</p>
                         </a>
@@ -127,10 +151,37 @@ const Calendar = () => {
                   </> : null}
                 </td>
               ))}
+              <td>
+                {calculateWeekSum(week) !== 0 && (
+                  <div>
+                    <p style={{ color: Number(calculateWeekSum(week)) < 0 ? 'red' : 'green' }}>
+                      {calculateWeekSum(week) > 0 ? `+${calculateWeekSum(week).toFixed(2)}` : calculateWeekSum(week).toFixed(2)}
+                    </p>
+                  </div>
+                )}
+              </td>
+              {index === 0 && (
+                <td rowSpan='6'>
+                  <div>
+                    <h4>MONTH</h4>
+                    <h6>PROFIT & LOSS</h6><br></br>
+                    <p style={{ color: calculateSum(monthData) < 0 ? 'red' : 'green' }}>
+                      {calculateSum(monthData) > 0 ? `+${calculateSum(monthData)}`: calculateSum(monthData)}</p><br></br>
+                    <h4>PROFIT</h4>
+                    <h6>TILL TODAY</h6>
+                  </div>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
       </table>
+      <div>
+        <h3>SATURDAY, SUNDAY ARE NO TRADE IN FOREX MARKET</h3>
+        <h3>TELEGRAM</h3>
+        <h3>WHATSAPP</h3>
+      </div>
+      // {selectedDay && <Main data={selectedDay} view={'daily'} />}
     </div>
   );
 };
