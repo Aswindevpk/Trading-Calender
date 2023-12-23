@@ -22,29 +22,31 @@
 
 .daily-calender-header button {
   cursor: pointer;
-  background-color: var(--color-light);
-  color: var(--color-bg);
+  background-color: var(--color-bg);
+  color: var(--color-light);
   font-size: 1rem;
   font-family: var(--font-primary);
   font-weight: 400;
   padding: 10px;
-  border: none;
+  border: 2px solid gray;
   border-radius: 0.5rem;
 }
 .daily-calender-header button:hover {
-  background-color: var(--color-white);
+  background-color: var(--color-gray);
 }
 
 .header {
   z-index: 3;
   position: absolute;
   color: var(--color-white);
-  padding: 20px;
+  padding: 120px 80px;
 }
+
 .header-values {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap:1rem;
+  padding-left: 2.5rem;
   color: var(--color-white);
   font-size: 1.2rem;
   font-family: var(--font-primary);
@@ -52,10 +54,9 @@
 }
 
 .header-mainvalue {
-  color: var(--color-light);
-  font-size: 3rem;
+  font-size: 5rem;
   font-family: var(--font-primary);
-  font-weight: 700;
+  font-weight: 400;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -64,6 +65,7 @@
   font-size: 1.2rem;
   font-family: var(--font-primary);
   font-weight: 400;
+  padding-left: 4rem;
   padding-bottom: 0.5rem;
 }
 
@@ -71,6 +73,7 @@
   color: var(--color-white);
   font-size: 1.2rem;
   font-family: var(--font-primary);
+  padding-left: 4rem;
   font-weight: 400;
 }
 
@@ -79,49 +82,30 @@
   font-size: 1.5rem;
   font-family: var(--font-primary);
   font-weight: 500;
-  padding-top: 1rem;
-}
-.header img {
-  max-width: 8rem;
-  left: 0;
+  padding-left: 6rem;
+  padding-top: 4.5rem;
 }
 
 .day-view {
   position: relative;
   border-radius: 0.5rem;
   width: 100%;
-  height: 400px; /* Adjust the height as needed */
+  height: 490px; /* Adjust the height as needed */
   overflow: hidden;
 }
 
-.gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(72, 69, 69, 0.5),
-    rgba(255, 255, 255, 0.5)
-  );
-  z-index: 1;
-}
 
 .photo {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
+  width: 100%;
   height: 100%;
   object-fit: cover; /* Maintain aspect ratio */
   z-index: 2;
-  opacity: 0.5;
 }
 
 .daily-calender-no-data {
   text-align: center;
-  color: rgb(227, 120, 120);
+  color:var(--color-red);
   font-size: 1.5rem;
   font-family: var(--font-primary);
   font-weight: 600;

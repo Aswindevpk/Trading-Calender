@@ -3,6 +3,9 @@ import './Calender.css';
 import db from './firebaseConfig';
 import { collection, getDocs } from '@firebase/firestore';
 import Main from './main';
+import { useNavigate, useLocation } from 'react-router-dom';
+import logo from "./assets/logo.png";
+import temp from "./assets/day_template.png"
 
 
 const daysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
@@ -61,6 +64,7 @@ const Calendar = () => {
   const [month, setMonth] = useState(currentDate.getMonth());
   const [monthData, setMonthData] = useState([]);
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -88,9 +92,25 @@ const Calendar = () => {
 
   const [selectedDay, setSelectedDay] = useState(null);
 
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // ...
+
   const handleDayClick = (day) => {
     const combinedDate = new Date(year, month, day);
-    setSelectedDay(combinedDate);
+
+    // Check if the current navigation action is a 'POP' (back/forward button)
+    const isPopAction = location.state?.action === 'POP';
+
+    if (isPopAction) {
+      // Handle pop action (e.g., back button clicked)
+      // You may want to customize this based on your use case
+    } else {
+      // Handle normal navigation
+      navigate(`/daily/${combinedDate}`);
+    }
   };
 
   const calculateSum = (monthData) => {
@@ -105,6 +125,7 @@ const Calendar = () => {
   const calculateWeekSum = (rowData) => {
     return rowData.reduce((acc, day) => acc + (parseFloat(day.value, 10) || 0), 0);
   };
+
 
   return (
     <div className="calender-container">
@@ -132,41 +153,81 @@ const Calendar = () => {
             <tr key={index}>
               {week.map((day, dayIndex) => (
                 <td key={dayIndex}>
-                  {day !== '' ? <>
-                    {day.value ? <>
-                      <div className='calender-cell'>
-                        <a href="#" onClick={() => handleDayClick(day.day)}>
-                          <span style={{ color: Number(day.value) < 0 ? 'red' : 'green' }}>{day.value}</span><br></br>
-                          <p>{day.day}</p>
-                        </a>
-                      </div>
-                    </> : <>
-                      <div className='calender-cell'>
-                        <a >
-                          <span>{day.value}</span><br></br>
-                          <p>{day.day}</p>
-                        </a>
-                      </div>
-                    </>}
-                  </> : null}
+                  <a onClick={() => handleDayClick(day.day)}>
+                    {day !== '' ? <>
+                      {day.value ? <>
+                        <div className='calendar-cell'>
+                          <div className='calendar-cell_content'>
+                            <div>
+                              <div className="calendar-cell-header-values">
+                                {day.action && day.action.toLowerCase() === "buy" ? (
+                                  <>
+                                    <span
+                                      className="calendar-cell-header-values-action"
+                                      style={{ color: "blue" }}
+                                    >
+                                      {day.action}
+                                    </span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <span
+                                      className="calendar-cell-header-values-action"
+                                      style={{ color: "var(--color-red)" }}
+                                    >
+                                      {day.action}
+                                    </span>
+                                  </>
+                                )}
+                                <span className="calendar-cell-header-values-cap">{day.cap}</span>
+                                <span className="calendar-cell-header-values-option">{day.type}</span>
+                              </div>
+                              <p className="calendar-cell-header-mainvalue" style={{ color: Number(day.value) < 0 ? 'var(--color-red)' : 'var(--color-green)' }}>{day.value}</p>
+                              <p className="calendar-cell-header-entryprice">ENTRY PRICE : {day.entry}</p>
+                              <p className="calendar-cell-header-closeprice">CLOSE PRICE : {day.close}</p>
+                            </div>
+                            <div className='calendar-cell-day'>
+                              <p>{day.day}</p>
+                            </div>
+
+                          </div>
+                          <img className='calendar-cell_img' src={temp} alt="Your Photo" ></img>
+                        </div>
+                      </> : <>
+                        <div className='calendar-cell-blank'>
+                          <div className='calendar-cell-blank_content'>
+                            <p>{day.day}</p>
+                          </div>
+                          <img className='calendar-cell-blank_img' src={logo} alt="Your Photo" ></img>
+                        </div>
+                      </>
+                      }
+                    </>
+                      : <>
+                        <div className='calendar-cell-blank' style={{ backgroundColor: '#191919' }}>
+                          <img className="calendar-cell-blank_img " src={logo} alt="Your Photo" ></img>
+                        </div>
+                      </>
+                    }
+                  </a>
                 </td>
               ))}
               <td>
                 {calculateWeekSum(week) !== 0 && (
-                  <div>
-                    <p style={{ color: Number(calculateWeekSum(week)) < 0 ? 'red' : 'green' }}>
-                      {calculateWeekSum(week) > 0 ? `+${calculateWeekSum(week).toFixed(2)}` : calculateWeekSum(week).toFixed(2)}
+                  <div className='calendar-week-pl'>
+                    <p style={{ color: Number(calculateWeekSum(week)) < 0 ? 'var(--color-red)' : 'var(--color-green)' }}>
+                      {calculateWeekSum(week) > 0 ? `+${calculateWeekSum(week).toFixed(2)}%` : `${calculateWeekSum(week).toFixed(2)}%`}
                     </p>
                   </div>
                 )}
               </td>
               {index === 0 && (
                 <td rowSpan='6'>
-                  <div>
+                  <div className='calendar-month-pl'>
                     <h4>MONTH</h4>
                     <h6>PROFIT & LOSS</h6><br></br>
-                    <p style={{ color: calculateSum(monthData) < 0 ? 'red' : 'green' }}>
-                      {calculateSum(monthData) > 0 ? `+${calculateSum(monthData)}`: calculateSum(monthData)}</p><br></br>
+                    <p style={{ color: calculateSum(monthData) < 0 ? 'var(--color-red)' : 'var(--color-green)' }}>
+                      {calculateSum(monthData) > 0 ? `+${calculateSum(monthData)}%` : `${calculateSum(monthData)}%`}</p><br></br>
                     <h4>PROFIT</h4>
                     <h6>TILL TODAY</h6>
                   </div>
@@ -176,12 +237,12 @@ const Calendar = () => {
           ))}
         </tbody>
       </table>
-      <div>
+      <div className='calendar-footer'>
         <h3>SATURDAY, SUNDAY ARE NO TRADE IN FOREX MARKET</h3>
         <h3>TELEGRAM</h3>
         <h3>WHATSAPP</h3>
       </div>
-      // {selectedDay && <Main data={selectedDay} view={'daily'} />}
+      {selectedDay && <Main data={selectedDay} view={'daily'} />}
     </div>
   );
 };

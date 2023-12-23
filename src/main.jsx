@@ -1,32 +1,47 @@
-import React, { useState } from 'react';
-import Calendar from './Calender';
-import YearlyCalendar from './yearlyCalender';
-import DailyCalendar from './dailyCalender';
+import React, { useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
+import Calendar from "./Calender";
+import YearlyCalendar from "./yearlyCalender";
+import DailyCalendar from "./dailyCalender";
 
-function Main({view,data}) {
+function Main() {
   const [currentDate, setcurrentDate] = useState(new Date());
-  const [currentView, setCurrentView] = useState("monthly"); // Initial view: yearly
 
-  if (view) {
-    setCurrentView(view);
-    setcurrentDate(data);
+  function DailyCalendarWrapper({ currentDate }) {
+    const { date } = useParams();
+    const selectedDate = date ? new Date(date) : currentDate;
+    return <DailyCalendar date={selectedDate} />;
   }
-  const handleViewChange = (view) => {
-    setCurrentView(view);
-  };
+
   return (
-    <div>
-      <div className="app" style={{ position: "absolute", top: 10, right: 10 }}>
-        <button onClick={() => handleViewChange("yearly")}>Yearly</button>
-        <button onClick={() => handleViewChange("monthly")}>Monthly</button>
-        <button onClick={() => handleViewChange("daily")}>Daily</button>
+    <BrowserRouter>
+      <div className="app" style={{textAlign:'center'}}>
+        <Link to="/year">
+          <button>Yearly</button>
+        </Link>
+        <Link to="/month">
+          <button>Monthly</button>
+        </Link>
+        <Link to={`/daily/${new Date().toISOString().split("T")[0]}`}>
+          <button>Daily</button>
+        </Link>
       </div>
-      {currentView === "yearly" && <YearlyCalendar initialYear={2023} />}{" "}
-      {/* Replace with your YearlyCalendar component */}
-      {currentView === "monthly" && <Calendar />}{" "}
-      {/* Replace with your MonthlyCalendar component */}
-      {currentView === "daily" && <DailyCalendar date={currentDate} />}
-    </div>
+      <Routes>
+        <Route path="" element={<Calendar />} />
+        <Route path="year" element={<YearlyCalendar initialYear={2023} />} />
+        <Route path="month" index element={<Calendar />} />
+        <Route
+          path="daily/:date"
+          element={<DailyCalendarWrapper currentDate={currentDate} />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

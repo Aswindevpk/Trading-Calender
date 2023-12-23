@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from "./firebaseConfig";
 import "./dailyCalender.css";
-import dayPhoto from "./assets/day-photo.jpg";
-import logo from "./assets/logo.png";
+import dayPhoto from "./assets/day-temp.png";
 
 const DailyCalendar = ({ date }) => {
   const [currentDate, setCurrentDate] = useState(date);
@@ -22,7 +21,6 @@ const DailyCalendar = ({ date }) => {
     setCurrentDate(nextDay);
   };
 
-  console.log(dailyData);
 
   useEffect(() => {
     const fetchDailyData = async () => {
@@ -82,9 +80,8 @@ const DailyCalendar = ({ date }) => {
       {Object.keys(dailyData).length !== 0 ? (
         <>
           <div className="header">
-            <img src={logo} alt="" />
             <div className="header-values">
-              {dailyData.action.toLowerCase() === "buy" ? (
+              {dailyData.action &&dailyData.action.toLowerCase() === "buy" ? (
                 <>
                   <span
                     className="header-values-action"
@@ -97,7 +94,7 @@ const DailyCalendar = ({ date }) => {
                 <>
                   <span
                     className="header-values-action"
-                    style={{ color: "red" }}
+                    style={{ color: "var(--color-red)" }}
                   >
                     {dailyData.action}
                   </span>
@@ -106,16 +103,14 @@ const DailyCalendar = ({ date }) => {
               <span className="header-values-cap">{dailyData.cap}</span>
               <span className="header-values-option">{dailyData.type}</span>
             </div>
-
-            <h2 className="header-mainvalue" style={{ color: "green" }}>
-              {dailyData.value}
+            <h2 className="header-mainvalue" style={{ color: Number(dailyData.value) < 0 ? 'var(--color-red)' : 'var(--color-green)' }}>
+              {dailyData.value} %
             </h2>
-            <p className="header-entryprice">Entry Price: {dailyData.entry}</p>
-            <p className="header-closeprice">Close Price: {dailyData.entry}</p>
+            <p className="header-entryprice">ENTRY PRICE : {dailyData.entry}</p>
+            <p className="header-closeprice">CLOSE PRICE : {dailyData.entry}</p>
             <h3 className="header-date">{dailyData.date}</h3>
           </div>
           <div class="day-view">
-            <div class="gradient"></div>
             <img class="photo" src={dayPhoto} alt="Your Photo" />
           </div>
         </>

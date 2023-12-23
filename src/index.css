@@ -5,11 +5,15 @@
   --font-primary: "Poppins", sans-serif;
   --font-secondary: "Open-Sans", sans-serif;
 
+  --gradient-date: linear-gradient(310deg, rgba(255, 255, 255, 0.099) 10%, rgba(255,0,69,1) 100%);
+
   --gradient-text: linear-gradient(49deg, #ded6ff 0%, #9074ff 93.93%);
   --color-bg: #141521;
   --color-text: #8970ef;
   --color-light: #ded6ff;
   --color-white: #fff;
+  --color-green:#11ce6b;
+  --color-red :rgb(226, 78, 48);
 }
 
 html {

@@ -1,7 +1,6 @@
 .calender-container {
-  max-width: 80%; /* Set a maximum width for the calendar */
   margin: 0 auto; /* Center the calendar on the screen */
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .calender-header {
@@ -13,8 +12,8 @@
 
 .calender-header button {
   cursor: pointer;
-  background-color: var(--color-light);
-  color: var(--color-bg);
+  background-color: var(--color-bg);
+  color: var(--color-light);
   font-size: 1rem;
   font-family: var(--font-primary);
   font-weight: 400;
@@ -23,25 +22,7 @@
   border-radius: 0.5rem;
 }
 
-h1,h2,h3,h4,h5,h6{
-  color: var(--color-light);
-  font-family: var(--font-primary);
-  font-weight: 600;
-  text-align: center;
-}
-h6{
-  color: var(--color-light);
-  font-family: var(--font-primary);
-  font-weight: 600;
-}
 
-p{
-  color: var(--color-light);
-  font-size: 1rem;
-  text-align: center;
-  font-family: var(--font-primary);
-  font-weight: 600;
-}
 
 .calender-header h2 {
   color: var(--color-light);
@@ -50,11 +31,14 @@ p{
   font-weight: 600;
 }
 
+
+
 .calender-table {
   padding-top: 1rem;
-  width: 100%; /* Make the table take up 100% of the container width */
+  margin: auto;
   border-collapse: collapse; /* Collapse table borders */
 }
+
 .calender-table th {
   color: var(--color-light);
   font-size: 1.25rem;
@@ -62,35 +46,165 @@ p{
   font-weight: 600;
 }
 
+
 .calender-table td{
-  border: 2px solid rebeccapurple;
+  width: 160px;
+  height: 90px;
+  border: 3px solid rgb(164, 160, 160);
 }
 
 .calender-table tbody{
+  border-radius: 0.5rem;
   border: 2px solid rebeccapurple;
 }
 
-.calender-cell {
-  margin: 5px;
-  padding: 0.5rem;
+
+.calendar-cell {
+  cursor: pointer;
   color: var(--color-light);
-  text-align: center;
-  min-width: 40px; /* Set a minimum width for cells */
+  text-align: center; 
+  width: 100%;
+  height: 100%;
+  background-color: black;
 }
 
-.calender-cell span {
-  color: var(--color-light);
+
+.calendar-cell-blank{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:black;
+  height: 100%;
+}
+
+.calendar-cell-blank_img{
+  position: relative;
+  height: 2rem;
+  opacity: 50%;
+  z-index: 1;
+}
+
+.calendar-cell-blank_content{
+  z-index: 3;
+  position: absolute;
+}
+
+.calendar-cell-blank_content p{
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  padding-left: 6rem;
+}
+
+
+.calendar-cell_img{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.calendar-cell_content{
+  display: flex;
+  z-index: 3;
+  position: absolute;
+  height: 100%;
+  padding-left: 1.2rem;
+  padding-top: 1.4rem;
+  text-align: left;
+}
+.calendar-cell-day{
+  position: absolute;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  left:6.9rem;
+  top:2rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+
+.calendar-cell-header-values {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+  color: var(--color-white);
+  font-size: 0.4rem;
+  font-family: var(--font-primary);
+  font-weight: 300;
+}
+
+.calendar-cell-header-mainvalue {
   font-size: 1rem;
   font-family: var(--font-primary);
-  font-weight: 600;
+  font-weight: 500;
+}
+.calendar-cell-header-entryprice {
+  color: var(--color-white);
+  font-size: 0.4rem;
+  font-family: var(--font-primary);
+  font-weight: 300;
 }
 
-.calender-cell p {
-  color: var(--color-light);
-  font-size: 0.8rem;
+.calendar-cell-header-closeprice {
+  color: var(--color-white);
+  font-size: 0.4rem;
   font-family: var(--font-primary);
-  font-weight: 600;
-  text-align: end;
+  font-weight: 300;
+}
+
+
+.calendar-week-pl p{
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  }
+
+.calendar-month-pl{
+  text-align: center;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+
+}
+
+.calendar-month-pl h4{
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  color: gray;
+}
+.calendar-month-pl h6{
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  color: gray;  
+}
+.calendar-month-pl p{
+  text-align: center;
+  font-size: 1.7rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+.calendar-footer{
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.calendar-footer{
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  color: rgb(189, 167, 167);
+  font-weight: 500;
 }
 
 
