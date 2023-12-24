@@ -1,0 +1,174 @@
+.yearly-calender-table {
+  padding-top: 1rem;
+  margin: auto;
+  width: 700px;
+  border-collapse: collapse; /* Collapse table borders */
+}
+
+.yearly-calender-table th {
+  color: var(--color-white);
+  font-size: 1rem;
+  font-family: var(--font-new);
+  padding-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.yearly-calender-table td {
+  width: 100px;
+  height: 60px;
+  border: 1px solid rgb(164, 160, 160);
+}
+
+.yearly-calender-table tbody {
+  border-radius: 0.5rem;
+  border: 1px solid rgb(164, 160, 160);
+}
+.yearly-calendar-cell {
+  cursor: pointer;
+  color: var(--color-light);
+  height: 100%;
+  background-color: black;
+}
+
+.yearly-calendar-cell a {
+  width: 100px;
+  height: 60px;
+}
+
+.yearly-calendar-cell-blank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 100%;
+}
+
+.yearly-calendar-cell-blank_img {
+  position: relative;
+  height: 1.5rem;
+  opacity: 50%;
+  z-index: 1;
+}
+
+.yearly-calendar-cell-blank_content {
+  z-index: 3;
+  position: absolute;
+}
+
+.yearly-calendar-cell-blank_content p {
+  font-size: 1rem;
+  font-family: var(--font-number);
+  font-weight: 400;
+  padding-left: 3rem;
+}
+
+.yearly-calendar-cell_img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.yearly-calendar-cell_content {
+  z-index: 3;
+  position: absolute;
+  padding-left: 0;
+  padding-top: 1rem;
+  text-align: center;
+  width: 60px;
+}
+
+.yearly-calendar-cell-day p {
+  position: relative;
+  font-size: 1rem;
+  bottom: 2rem;
+  left: 2.1rem;
+  font-family: var(--font-number);
+  font-weight: 600;
+}
+
+.yearly-calendar-cell-day {
+  text-align: center;
+}
+
+.yearly-calendar-cell-header-values {
+  display: flex;
+  flex-direction: row;
+  gap: 0.1rem;
+  color: #9595c1;
+  font-size: 0.2rem;
+  font-family: var(--font-number);
+  font-weight: 500;
+  justify-content: center;
+}
+
+.yearly-calendar-cell-header-mainvalue {
+  font-size: 0.85rem;
+  font-family: var(--font-number);
+  font-weight: 500;
+  color: var(--gradient-green);
+}
+.yearly-calendar-cell-header-entryprice {
+  color: var(--color-white);
+  font-size: 0.2rem;
+  font-family: var(--font-primary);
+  font-weight: 200;
+}
+
+.yearly-calendar-cell-header-closeprice {
+  color: var(--color-white);
+  font-size: 0.2rem;
+  font-family: var(--font-primary);
+  font-weight: 200;
+}
+
+.yearly-calendar-week-pl p {
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-number);
+  font-weight: 700;
+}
+
+.yearly-calendar-month-pl {
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+.yearly-calendar-month-pl h4 {
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-new);
+  font-weight: 500;
+  color: #9595c1;
+}
+.yearly-calendar-month-pl h6 {
+  margin: 0;
+  text-align: center;
+  font-size: 0.5rem;
+  font-family: var(--font-new);
+  font-weight: 500;
+  color: #9595c1;
+}
+.yearly-calendar-month-pl p {
+  text-align: center;
+  font-size: 1rem;
+  font-family: var(--font-number);
+  font-weight: 800;
+}
+
+.yearly-calendar-footer {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.yearly-calendar-footer {
+  font-size: 1rem;
+  font-family: var(--font-new);
+  color: rgb(189, 167, 167);
+  font-weight: 500;
+  margin-bottom: 3rem;
+}

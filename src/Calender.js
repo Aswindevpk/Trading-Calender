@@ -58,8 +58,9 @@ const getMonthData = async (year, month) => {
 
 
 
-const Calendar = () => {
-  const currentDate = new Date();
+const Calendar = ({date}) => {
+  const currentDate = date;
+  console.log(currentDate)
   const [year, setYear] = useState(currentDate.getFullYear());
   const [month, setMonth] = useState(currentDate.getMonth());
   const [monthData, setMonthData] = useState([]);
@@ -96,7 +97,6 @@ const Calendar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // ...
 
   const handleDayClick = (day) => {
     const combinedDate = new Date(year, month, day);
@@ -172,7 +172,6 @@ const Calendar = () => {
                             <div className='calendar-cell-day'>
                               <p className='gradient__day'>{day.day}</p>
                             </div>
-
                           </div>
                           <img className='calendar-cell_img' src={temp} alt="Your Photo" ></img>
                         </div>

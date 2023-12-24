@@ -97,7 +97,7 @@ const DailyCalendar = ({ date }) => {
               {dailyData.value} %
             </h2>
             <p className="header-entryprice">ENTRY PRICE : {dailyData.entry}</p>
-            <p className="header-closeprice">CLOSE PRICE : {dailyData.entry}</p>
+            <p className="header-closeprice">CLOSE PRICE : {dailyData.close}</p>
             <h3 className="header-date">{dailyData.date}</h3>
           </div>
           <div class="day-view">

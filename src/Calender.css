@@ -58,8 +58,6 @@
   border-radius: 0.5rem;
   border: 2px solid rebeccapurple;
 }
-
-
 .calendar-cell {
   cursor: pointer;
   color: var(--color-light);
