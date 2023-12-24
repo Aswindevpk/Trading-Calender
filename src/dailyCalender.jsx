@@ -38,6 +38,14 @@ const DailyCalendar = ({ date }) => {
         year: "numeric",
       };
       const formattedDate = currentDate.toLocaleDateString("en-US", options);
+
+      const dateFormatOptions = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      };
+      const dateToShow = new Intl.DateTimeFormat('en-US', dateFormatOptions).format(currentDate);
+
       let collectionName = `${shortMonth}${year}`;
 
       try {
@@ -46,7 +54,7 @@ const DailyCalendar = ({ date }) => {
         const fetchedData = dailySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-          date: formattedDate,
+          date: dateToShow,
         }));
 
         if (!dailySnapshot.empty) {
@@ -73,37 +81,19 @@ const DailyCalendar = ({ date }) => {
   return (
     <div className="daily-calendar-container">
       <div className="daily-calender-header">
-        <button onClick={goToPreviousDay}>Previous Day</button>
+        <button onClick={goToPreviousDay}>&lt; Previous Day</button>
         <h2>{currentDate.toDateString()}</h2>
-        <button onClick={goToNextDay}>Next Day</button>
+        <button onClick={goToNextDay}>Next Day &gt;</button>
       </div>
       {Object.keys(dailyData).length !== 0 ? (
         <>
           <div className="header">
-            <div className="header-values">
-              {dailyData.action &&dailyData.action.toLowerCase() === "buy" ? (
-                <>
-                  <span
-                    className="header-values-action"
-                    style={{ color: "blue" }}
-                  >
-                    {dailyData.action}
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span
-                    className="header-values-action"
-                    style={{ color: "var(--color-red)" }}
-                  >
-                    {dailyData.action}
-                  </span>
-                </>
-              )}
-              <span className="header-values-cap">{dailyData.cap}</span>
+            <div className="header-values gradient__blue">
+              <span className="header-value-action">{dailyData.action} |</span>
+              <span className="header-values-cap">{dailyData.cap} |</span>
               <span className="header-values-option">{dailyData.type}</span>
             </div>
-            <h2 className="header-mainvalue" style={{ color: Number(dailyData.value) < 0 ? 'var(--color-red)' : 'var(--color-green)' }}>
+            <h2 className={`header-mainvalue ${Number(dailyData.value) < 0 ? "gradient__red" : "gradient__green"}`}>
               {dailyData.value} %
             </h2>
             <p className="header-entryprice">ENTRY PRICE : {dailyData.entry}</p>

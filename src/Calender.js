@@ -159,35 +159,18 @@ const Calendar = () => {
                         <div className='calendar-cell'>
                           <div className='calendar-cell_content'>
                             <div>
-                              <div className="calendar-cell-header-values">
-                                {day.action && day.action.toLowerCase() === "buy" ? (
-                                  <>
-                                    <span
-                                      className="calendar-cell-header-values-action"
-                                      style={{ color: "blue" }}
-                                    >
-                                      {day.action}
-                                    </span>
-                                  </>
-                                ) : (
-                                  <>
-                                    <span
-                                      className="calendar-cell-header-values-action"
-                                      style={{ color: "var(--color-red)" }}
-                                    >
-                                      {day.action}
-                                    </span>
-                                  </>
-                                )}
-                                <span className="calendar-cell-header-values-cap">{day.cap}</span>
+                              <div className="calendar-cell-header-values gradient__blue">
+                                <span className="calendar-cell-header-values-action">{day.action} |</span>
+                                <span className="calendar-cell-header-values-cap">{day.cap} |</span>
                                 <span className="calendar-cell-header-values-option">{day.type}</span>
                               </div>
-                              <p className="calendar-cell-header-mainvalue" style={{ color: Number(day.value) < 0 ? 'var(--color-red)' : 'var(--color-green)' }}>{day.value}</p>
+                              <p className={`calendar-cell-header-mainvalue ${Number(day.value) < 0 ? "gradient__red" : "gradient__green"}`}>{day.value}%</p>
                               <p className="calendar-cell-header-entryprice">ENTRY PRICE : {day.entry}</p>
                               <p className="calendar-cell-header-closeprice">CLOSE PRICE : {day.close}</p>
+                              {/* <p className='calendar-cell-header-date'>{day.day}</p> */}
                             </div>
                             <div className='calendar-cell-day'>
-                              <p>{day.day}</p>
+                              <p className='gradient__day'>{day.day}</p>
                             </div>
 
                           </div>
@@ -196,7 +179,7 @@ const Calendar = () => {
                       </> : <>
                         <div className='calendar-cell-blank'>
                           <div className='calendar-cell-blank_content'>
-                            <p>{day.day}</p>
+                            <p className='gradient__day'>{day.day}</p>
                           </div>
                           <img className='calendar-cell-blank_img' src={logo} alt="Your Photo" ></img>
                         </div>
@@ -215,7 +198,7 @@ const Calendar = () => {
               <td>
                 {calculateWeekSum(week) !== 0 && (
                   <div className='calendar-week-pl'>
-                    <p style={{ color: Number(calculateWeekSum(week)) < 0 ? 'var(--color-red)' : 'var(--color-green)' }}>
+                    <p className={`${Number(calculateWeekSum(week)) < 0 ? "gradient__red" : "gradient__green"}`} >
                       {calculateWeekSum(week) > 0 ? `+${calculateWeekSum(week).toFixed(2)}%` : `${calculateWeekSum(week).toFixed(2)}%`}
                     </p>
                   </div>
@@ -224,12 +207,12 @@ const Calendar = () => {
               {index === 0 && (
                 <td rowSpan='6'>
                   <div className='calendar-month-pl'>
-                    <h4>MONTH</h4>
-                    <h6>PROFIT & LOSS</h6><br></br>
-                    <p style={{ color: calculateSum(monthData) < 0 ? 'var(--color-red)' : 'var(--color-green)' }}>
+                    <h4 className='gradient__blue'>MONTH</h4>
+                    <h6 className='gradient__blue'>PROFIT & LOSS</h6><br></br>
+                    <p className={`${Number(calculateSum(monthData)) < 0 ? "gradient__red" : "gradient__green"}`} >
                       {calculateSum(monthData) > 0 ? `+${calculateSum(monthData)}%` : `${calculateSum(monthData)}%`}</p><br></br>
-                    <h4>PROFIT</h4>
-                    <h6>TILL TODAY</h6>
+                    <h4 className='gradient__blue'>PROFIT</h4>
+                    <h6 className='gradient__blue'>TILL TODAY</h6>
                   </div>
                 </td>
               )}
@@ -237,7 +220,7 @@ const Calendar = () => {
           ))}
         </tbody>
       </table>
-      <div className='calendar-footer'>
+      <div className='calendar-footer gradient__blue'>
         <h3>SATURDAY, SUNDAY ARE NO TRADE IN FOREX MARKET</h3>
         <h3>TELEGRAM</h3>
         <h3>WHATSAPP</h3>

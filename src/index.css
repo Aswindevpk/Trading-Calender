@@ -1,19 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.cdnfonts.com/css/creato-display');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+
+
 
 :root {
-  --font-primary: "Poppins", sans-serif;
+  --font-primary: "Poppins", sans-seriF;
   --font-secondary: "Open-Sans", sans-serif;
+  --font-new: 'Creato Display', sans-serif;
+  --font-number: 'Oswald', sans-serif;
+  --font-heading: 'Kalam', sans-serif;
+                                                
 
-  --gradient-date: linear-gradient(310deg, rgba(255, 255, 255, 0.099) 10%, rgba(255,0,69,1) 100%);
+  --gradient-date: linear-gradient(360deg, #E4C9DB 10%, #E6A9AD 100%);
 
-  --gradient-text: linear-gradient(49deg, #ded6ff 0%, #9074ff 93.93%);
+  --gradient-blue: linear-gradient(360deg, #DCE9FF 10%, #B2D1F2 93.93%);
+  --gradient-green: linear-gradient(360deg, #1be3a4 10%, #98e05f 93.93%);
+  --gradient-red: linear-gradient(360deg, #f08fd0 10%, #f93845 93.93%);
+
   --color-bg: #141521;
   --color-text: #8970ef;
   --color-light: #ded6ff;
   --color-white: #fff;
-  --color-green:#11ce6b;
-  --color-red :rgb(226, 78, 48);
+  --color-green:#b0e486;
+  --color-red :rgb(245, 151, 133);
 }
 
 html {

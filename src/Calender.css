@@ -1,37 +1,37 @@
 .calender-container {
   margin: 0 auto; /* Center the calendar on the screen */
-  margin-top: 50px;
+  margin-top: 10px;
+  width: 1250px;
 }
 
 .calender-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
 }
 
 .calender-header button {
   cursor: pointer;
-  background-color: var(--color-bg);
-  color: var(--color-light);
+  background-color: black;
+  color: var(--color-white);
   font-size: 1rem;
   font-family: var(--font-primary);
   font-weight: 400;
   padding: 10px;
-  border: none;
-  border-radius: 0.5rem;
+  border: 2px solid gray;
+  border-radius: 0.2rem;
 }
 
-
+.calender-header button:hover{
+  border: 2px solid white;
+}
 
 .calender-header h2 {
-  color: var(--color-light);
-  font-size: 2rem;
-  font-family: var(--font-primary);
+  color: var(--color-white);
+  font-size: 3.5rem;
+  font-family: var(--font-heading);
   font-weight: 600;
 }
-
-
 
 .calender-table {
   padding-top: 1rem;
@@ -40,17 +40,18 @@
 }
 
 .calender-table th {
-  color: var(--color-light);
-  font-size: 1.25rem;
-  font-family: var(--font-primary);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-family: var(--font-new);
+  padding-bottom: 0.5rem;
   font-weight: 600;
 }
 
 
 .calender-table td{
-  width: 160px;
+  width: 130px;
   height: 90px;
-  border: 3px solid rgb(164, 160, 160);
+  border: 2px solid rgb(164, 160, 160);
 }
 
 .calender-table tbody{
@@ -62,10 +63,13 @@
 .calendar-cell {
   cursor: pointer;
   color: var(--color-light);
-  text-align: center; 
-  width: 100%;
   height: 100%;
   background-color: black;
+}
+
+.calendar-cell a{
+  width: 135px;
+  height: 80px;
 }
 
 
@@ -90,10 +94,9 @@
 }
 
 .calendar-cell-blank_content p{
-  color: var(--color-white);
   font-size: 1.5rem;
-  font-family: var(--font-primary);
-  font-weight: 500;
+  font-family: var(--font-number);
+  font-weight: 600;
   padding-left: 6rem;
 }
 
@@ -106,22 +109,27 @@
 }
 
 .calendar-cell_content{
-  display: flex;
   z-index: 3;
   position: absolute;
-  height: 100%;
-  padding-left: 1.2rem;
+  padding-left: 0;
   padding-top: 1.4rem;
-  text-align: left;
+  text-align: center;
+  width: 80px;
 }
-.calendar-cell-day{
-  position: absolute;
-  color: var(--color-white);
+
+
+
+.calendar-cell-day p{
+  position: relative;
   font-size: 1.5rem;
-  left:6.9rem;
-  top:2rem;
-  font-family: var(--font-primary);
-  font-weight: 500;
+  bottom: 2.9rem;
+  left: 4.5rem;
+  font-family: var(--font-number);
+  font-weight: 600;
+}
+
+.calendar-cell-day{
+  text-align: center;
 }
 
 
@@ -129,38 +137,39 @@
   display: flex;
   flex-direction: row;
   gap: 0.2rem;
-  color: var(--color-white);
-  font-size: 0.4rem;
-  font-family: var(--font-primary);
-  font-weight: 300;
+  color:#9595c1;
+  font-size: 0.3rem;
+  font-family: var(--font-number);
+  font-weight: 500;
+  justify-content: center;
 }
 
 .calendar-cell-header-mainvalue {
-  font-size: 1rem;
-  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  font-family: var(--font-number);
   font-weight: 500;
+  color: var(--gradient-green);
 }
 .calendar-cell-header-entryprice {
   color: var(--color-white);
-  font-size: 0.4rem;
+  font-size: 0.3rem;
   font-family: var(--font-primary);
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .calendar-cell-header-closeprice {
   color: var(--color-white);
-  font-size: 0.4rem;
+  font-size: 0.3rem;
   font-family: var(--font-primary);
-  font-weight: 300;
+  font-weight: 200;
 }
 
 
 .calendar-week-pl p{
   text-align: center;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  font-family: var(--font-primary);
-  font-weight: 500;
+  font-size: 2rem;
+  font-family: var(--font-number);
+  font-weight: 700;
   }
 
 .calendar-month-pl{
@@ -175,22 +184,22 @@
 .calendar-month-pl h4{
   text-align: center;
   font-size: 1.7rem;
-  font-family: var(--font-primary);
+  font-family: var(--font-new);
   font-weight: 500;
-  color: gray;
+  color: #9595c1;
 }
 .calendar-month-pl h6{
   text-align: center;
   font-size: 1rem;
-  font-family: var(--font-primary);
+  font-family: var(--font-new);
   font-weight: 500;
-  color: gray;  
+  color: #9595c1;  
 }
 .calendar-month-pl p{
   text-align: center;
-  font-size: 1.7rem;
-  font-family: var(--font-primary);
-  font-weight: 500;
+  font-size: 2.3rem;
+  font-family: var(--font-number);
+  font-weight: 800;
 }
 
 .calendar-footer{
@@ -202,9 +211,11 @@
 
 .calendar-footer{
   font-size: 1rem;
-  font-family: var(--font-primary);
+  font-family: var(--font-new);
   color: rgb(189, 167, 167);
   font-weight: 500;
+  margin-bottom: 3rem
+  ;
 }
 
 

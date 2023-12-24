@@ -5,8 +5,9 @@
 }
 
 body {
-  background-color: rgb(19, 19, 19);
-  margin: 4rem;
+  background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+  background: rgb(36, 35, 35);
+  padding: 20px;
 }
 
 a {
@@ -14,27 +15,54 @@ a {
   text-decoration: none;
 }
 
+.root{
+  margin-bottom: 3rem;
+}
+
 .app button {
   cursor: pointer;
-  background-color: var(--color-bg);
+  background-color: black;
   color: var(--color-white);
   padding: 10px;
   margin-right: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
+  border: 2px solid gray;
   font-size: 1rem;
   font-family: var(--font-primary);
   font-weight: 400;
-  border: 2px;
+  margin-bottom: 1rem;
 }
 
 .app button:hover {
-  color: var(--color-light);
+  border: 2px solid white;
 }
 
-.section__padding {
-  padding: 4rem 8rem;
+.gradient__green{
+  background: var(--gradient-green);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.section__margin {
-  margin: 4rem 8rem;
+.gradient__red{
+  background: var(--gradient-red);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+.gradient__blue{
+  background: var(--gradient-blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient__day{
+  background: var(--gradient-date);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
