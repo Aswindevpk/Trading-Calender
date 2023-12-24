@@ -85,7 +85,7 @@ const YearlyCalendar = ({ initialYear }) => {
     setYear((prevYear) => prevYear + 1);
   };
 
-  
+
   return (
     <div className="yearly-calendar-container">
       <div className="yearly-calendar-header">

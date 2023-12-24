@@ -32,12 +32,12 @@ const DailyCalendar = ({ date }) => {
       const year = date.getFullYear();
       const id = date.getDate();
 
-      const options = {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      };
-      const formattedDate = currentDate.toLocaleDateString("en-US", options);
+      // const options = {
+      //   day: "2-digit",
+      //   month: "short",
+      //   year: "numeric",
+      // };
+      // const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
       const dateFormatOptions = {
         year: 'numeric',
@@ -101,7 +101,7 @@ const DailyCalendar = ({ date }) => {
             <h3 className="header-date">{dailyData.date}</h3>
           </div>
           <div class="day-view">
-            <img class="photo" src={dayPhoto} alt="Your Photo" />
+            <img class="photo" src={dayPhoto} alt="photo of the trading company"/>
           </div>
         </>
       ) : (

@@ -11,7 +11,7 @@ import YearlyCalendar from "./yearlyCalender";
 import DailyCalendar from "./dailyCalender";
 
 function Main() {
-  let currentDate= new Date()
+  const [currentDate, setCurrentDate] = useState(new Date());
 
   function DailyCalendarWrapper({ currentDate }) {
     const { date } = useParams();
@@ -21,8 +21,8 @@ function Main() {
 
   function MonthCalendarWarpper({ currentDate }) {
     const { date } = useParams();
-    const selectedDate = date ? new Date(date) : currentDate;
-    return <Calendar date={selectedDate} />;
+    const selDate = date ? new Date(date) : currentDate;
+    return <Calendar date={selDate} />;
   }
 
 
@@ -41,10 +41,10 @@ function Main() {
         </Link>
       </div>
       <Routes>
-        <Route path="" element={<Calendar />} />
+        <Route path="" element={<Calendar date={new Date()}/>} />
         <Route path="year" element={<YearlyCalendar initialYear={2023} />} />
-        <Route path="month/:date" index element={<MonthCalendarWarpper currentDate={currentDate}/>} />
-        <Route path="daily/:date" element={<DailyCalendarWrapper currentDate={currentDate} />}/>
+        <Route path="month/:date"  index element={<MonthCalendarWarpper currentDate={currentDate}/>} />
+        <Route path="daily/:date" element={<DailyCalendarWrapper currentDate={new Date()} />}/>
       </Routes>
     </BrowserRouter>
   );

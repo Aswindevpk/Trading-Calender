@@ -59,8 +59,7 @@ const getMonthData = async (year, month) => {
 
 
 const Calendar = ({date}) => {
-  const currentDate = date;
-  console.log(currentDate)
+  const [currentDate, setCurrentDate] = useState(date);
   const [year, setYear] = useState(currentDate.getFullYear());
   const [month, setMonth] = useState(currentDate.getMonth());
   const [monthData, setMonthData] = useState([]);
