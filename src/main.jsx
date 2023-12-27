@@ -29,7 +29,7 @@ function Main() {
 
   return (
     <BrowserRouter>
-      <div className="app" style={{textAlign:'center'}}>
+      <div className="app" style={{textAlign:'center',justifyContent:'center'}}>
         <Link to="/year">
           <button>Yearly</button>
         </Link>

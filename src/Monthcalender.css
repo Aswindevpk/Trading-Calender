@@ -172,3 +172,108 @@
   font-weight: 500;
   margin-bottom: 3rem;
 }
+
+
+@media screen and (max-width:450px){
+
+  .yearly-calender-table {
+    margin-top: 10px;
+    width: 350px;
+  }
+  
+  .yearly-calender-table th {
+    font-size: 0.4rem;
+    padding-bottom: 0.2rem;
+    font-weight: 500;
+  }
+  
+  .yearly-calender-table td {
+    width: 35px;
+    height: 26px;
+    border: 0.5px solid rgb(164, 160, 160);
+  }
+  
+  .yearly-calender-table tbody {
+    border-radius: 0.2rem;
+    border: 0.5px solid rgb(164, 160, 160);
+  }
+  
+  
+  .yearly-calendar-cell-blank_img {
+    position: relative;
+    height: 0.5rem;
+    opacity: 50%;
+    z-index: 1;
+  }
+  
+  
+  .yearly-calendar-cell-blank_content p {
+    font-size: 0.5rem;
+    font-weight: 500;
+    padding-left: 1.5rem;
+  }
+  
+  
+  .yearly-calendar-cell_content {
+    padding-left: 0;
+    padding-top: 0.45rem;
+    width: 22px;
+  }
+  
+  .yearly-calendar-cell-day p {
+    font-size: 0.5rem;
+    bottom: 1rem;
+    left: 1.25rem;
+    font-weight: 500;
+  }
+  
+
+  .yearly-calendar-cell-header-values {
+    gap: 0.025rem;
+    font-size: 0.09rem;
+    font-weight: 400;
+  }
+  
+  .yearly-calendar-cell-header-mainvalue {
+    font-size: 0.35rem;
+    font-weight: 500;
+    padding-bottom: 0.1rem;
+  }
+
+  .yearly-calendar-cell-header-entryprice {
+    font-size: 0.1rem;
+    font-weight: 200;
+  }
+  
+  .yearly-calendar-cell-header-closeprice {
+    font-size: 0.1rem;
+    font-weight: 200;
+  }
+  
+  .yearly-calendar-week-pl p {
+    font-size: 0.5rem;
+    font-weight: 700;
+  }
+
+  .yearly-calendar-week-pl{
+    font-size: 0.5rem;
+    padding: 0rem 0.5rem;
+    font-weight: 500;
+  }
+  
+  
+  .yearly-calendar-month-pl h4 {
+    font-size: 0.6rem;
+    font-weight: 500;
+  }
+  .yearly-calendar-month-pl h6 {
+    font-weight: 500;
+    font-size: 0.35rem;
+  }
+  .yearly-calendar-month-pl p {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    font-weight: 800;
+  }
+  
+}

@@ -129,9 +129,9 @@ const Calendar = ({date}) => {
   return (
     <div className="calender-container">
       <div className="calender-header">
-        <button onClick={goToPreviousMonth}>&lt; Previous Month</button>
+        <button onClick={goToPreviousMonth}>&lt; Prev</button>
         <h2>{`${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`}</h2>
-        <button onClick={goToNextMonth}>Next Month &gt;</button>
+        <button onClick={goToNextMonth}>Next &gt;</button>
       </div>
       <table className="calender-table">
         <thead>
