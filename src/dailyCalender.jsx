@@ -81,9 +81,9 @@ const DailyCalendar = ({ date }) => {
   return (
     <div className="daily-calendar-container">
       <div className="daily-calender-header">
-        <button onClick={goToPreviousDay}>&lt; Previous Day</button>
+        <button onClick={goToPreviousDay}>&lt; Previous</button>
         <h2>{currentDate.toDateString()}</h2>
-        <button onClick={goToNextDay}>Next Day &gt;</button>
+        <button onClick={goToNextDay}>Next &gt;</button>
       </div>
       {Object.keys(dailyData).length !== 0 ? (
         <>

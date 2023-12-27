@@ -5,7 +5,6 @@
 }
 
 body {
-  background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
   background: rgb(36, 35, 35);
   padding: 20px;
 }
@@ -33,6 +32,31 @@ a {
   font-weight: 400;
   margin-bottom: 1rem;
 }
+
+@media screen and (max-width:900px){
+  .app button {
+    padding: 8px;
+    margin-right: 0.7rem;
+    border-radius: 0.2rem;
+    border: 2px solid gray;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width:450px){
+  .app button {
+    padding: 4px 8px;
+    margin-right: 0.5rem;
+    border-radius: 0.2rem;
+    border: 1px solid gray;
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+}
+
 
 .app button:hover {
   border: 2px solid white;

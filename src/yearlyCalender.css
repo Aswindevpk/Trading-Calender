@@ -64,6 +64,56 @@
 
 
 
+@media screen and (max-width:425px){
+.yearly-calendar-container {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.yearly-calendar-header {
+  margin-bottom: 1rem;
+}
+
+.yearly-calendar-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.yearly-calendar-header button {
+  font-size: 0.5rem;
+  font-weight: 400;
+  padding: 6px;
+  border: 1px solid gray;
+  border-radius: 0.2rem;
+}
+
+.yearly-calendar-header button:hover {
+  border: 2px solid white;
+}
+
+.yearly-month-calendar {
+  flex: 40%;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.yearly-month-calendar h3 {
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+}
+}
+
+
+
+
+
+
+
+
 
 
 
