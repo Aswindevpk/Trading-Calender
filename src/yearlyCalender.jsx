@@ -89,9 +89,9 @@ const YearlyCalendar = ({ initialYear }) => {
   return (
     <div className="yearly-calendar-container">
       <div className="yearly-calendar-header">
-        <button onClick={goToPreviousYear}>&lt; Previous Year</button>
+        <button onClick={goToPreviousYear}>&lt; Prev</button>
         <h2>{year}</h2>
-        <button onClick={goToNextYear}>Next Year &gt;</button>
+        <button onClick={goToNextYear}>Next &gt;</button>
       </div>
       <div className="yearly-calendar">
         {yearlyData.map((monthData, index) => (

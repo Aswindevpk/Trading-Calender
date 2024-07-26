@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        .navbar-menu_container {
+            display: none;
+            justify-content: flex-end;
+            text-align: end;
+            padding: 0.5rem 0.5rem;
+            color: rgb(165, 164, 164);
+            position: absolute;
+            top: 3.5rem;
+            right: 2.5rem;
+            min-width: 80px;
+            background-color: black;
+            border-radius: 5px;
+            z-index: 4;
+        }
+
+        .navbar-links_container-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }   
+
+        .navbar-menu_container-links p {
+            font-family: 'Abel', sans-serif;
+            font-size: 18px;
+            padding: 0.5rem;
+            text-decoration: none;
+            color: unset;
+            cursor: pointer;
+        }
+
+        .navbar-menu_container-links img {
+            height: 44px;
+            cursor: pointer;
+        }
+
+        .navbar-menu_container-links p:hover {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+    <title>Show/Hide Navbar Menu</title>
+</head>
+
+<body>
+
+    <!-- Button to toggle the display of the navbar menu -->
+    <button onclick="toggleNavbar()">Toggle Navbar Menu</button>
+
+    <!-- Navbar menu container with links -->
+    <div class="navbar-menu_container">
+        <div class="navbar-menu_container-links">
+            <p>
+                <a href="https://trilliontwentyfour.com">HOME CLAN</a>
+            </p>
+            <p>
+                <a href="https://trilliontwentyfour.com/index.php/t24-master-clan/">TRILLION MASTER CLAN</a>
+            </p>
+            <p>
+                <a href="https://calender.trilliontwentyfour.com/">
+                    <img src={calendarbutton} alt="" />
+                </a>
+            </p>
+            <p>
+                <a href="https://trilliontwentyfour.com/index.php/connect-our-clan/">CONNECT OUR CLAN</a>
+            </p>
+            <p>
+                <a href="https://trilliontwentyfour.com/index.php/t24-plans/">T24 PLANS</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript function to toggle the display of the navbar menu
+        function toggleNavbar() {
+            var navbarMenu = document.querySelector('.navbar-menu_container-links');
+            navbarMenu.style.display = (navbarMenu.style.display === 'none' || navbarMenu.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+
+</html>

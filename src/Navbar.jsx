@@ -16,7 +16,7 @@ function Navbar() {
         <a href="https://trilliontwentyfour.com/index.php/t24-master-clan/">TRILLION MASTER CLAN</a>
       </p>
       <p>
-        <a href="https://trilliontwentyfour.com/calender/index.html">
+        <a href="https://calender.trilliontwentyfour.com/">
         <img src={calendarbutton} alt="" />
         </a>
       </p>
@@ -33,7 +33,7 @@ function Navbar() {
       <div className="navbar">
         <div className="navbar-links">
           <div className="navbar-links_logo">
-            <a href="https://trilliontwentyfour.com/">
+            <a href="https://trilliontwentyfour.com">
             <img src={t24logo} alt="" />
             </a>
           </div>

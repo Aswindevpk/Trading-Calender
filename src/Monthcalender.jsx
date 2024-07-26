@@ -3,6 +3,7 @@ import React from "react";
 import "./Monthcalender.css";
 import logo from "./assets/logo.png";
 import temp from "./assets/day_template.png";
+import no_data from "./assets/no-data.jpg";
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
@@ -55,7 +56,7 @@ const MonthCalendar = ({ month, year, data }) => {
   return (
     <div className="yearly-month-calendar">
       <a onClick={()=> handleMonthClick(year,month)}>
-        <h3>{`${new Date(year, month).toLocaleString("default", {month: "short",})} ${year}`}</h3>
+        <h3>{`${new Date(year, month).toLocaleString("default", {month: "short",}).toUpperCase()} ${year}`}</h3>
       </a>
       <table className="yearly-calender-table">
         <thead>
@@ -131,7 +132,7 @@ const MonthCalendar = ({ month, year, data }) => {
                               </div>
                               <img
                                 className="yearly-calendar-cell-blank_img"
-                                src={logo}
+                                src={no_data}
                                 alt="Your Photo"
                               ></img>
                             </div>
@@ -146,7 +147,7 @@ const MonthCalendar = ({ month, year, data }) => {
                         >
                           <img
                             className="yearly-calendar-cell-blank_img"
-                            src={logo}
+                            src={no_data}
                             alt="Your Photo"
                           ></img>
                         </div>

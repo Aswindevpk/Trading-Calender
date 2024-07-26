@@ -18,8 +18,7 @@
                                                 
 
   --gradient-date: linear-gradient(360deg, #E4C9DB 10%, #E6A9AD 100%);
-
-  --gradient-blue: linear-gradient(360deg, #DCE9FF 10%, #B2D1F2 93.93%);
+  --gradient-blue: linear-gradient(180deg, #DCE9FF 10%, #9292bf 93.93%);
   --gradient-green: linear-gradient(360deg, #1be3a4 10%, #98e05f 93.93%);
   --gradient-red: linear-gradient(360deg, #f08fd0 10%, #f93845 93.93%);
 

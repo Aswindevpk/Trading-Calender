@@ -39,16 +39,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
   height: 100%;
 }
 
-.yearly-calendar-cell-blank_img {
-  position: relative;
-  height: 1.5rem;
-  opacity: 50%;
-  z-index: 1;
+.yearly-calendar-cell-blank_img{
+  height: 100%;
+  width: 100%;
 }
+
 
 .yearly-calendar-cell-blank_content {
   z-index: 3;
@@ -75,16 +73,16 @@
   padding-left: 0;
   padding-top: 1rem;
   text-align: center;
-  width: 60px;
+  width: 50px;
 }
 
 .yearly-calendar-cell-day p {
   position: relative;
   font-size: 1rem;
-  bottom: 2rem;
-  left: 2.1rem;
+  bottom: 1.75rem;
+  left: 2.35rem;
   font-family: var(--font-number);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .yearly-calendar-cell-day {
@@ -97,35 +95,35 @@
   gap: 0.1rem;
   color: #9595c1;
   font-size: 0.2rem;
-  font-family: var(--font-number);
+  font-family: var(--font-navbar);
   font-weight: 500;
   justify-content: center;
 }
 
 .yearly-calendar-cell-header-mainvalue {
   font-size: 0.85rem;
-  font-family: var(--font-number);
+  font-family: var(--font-navbar);
   font-weight: 500;
   color: var(--gradient-green);
 }
 .yearly-calendar-cell-header-entryprice {
   color: var(--color-white);
   font-size: 0.2rem;
-  font-family: var(--font-primary);
+  font-family: var(--font-navbar);
   font-weight: 200;
 }
 
 .yearly-calendar-cell-header-closeprice {
   color: var(--color-white);
   font-size: 0.2rem;
-  font-family: var(--font-primary);
+  font-family: var(--font-navbar);
   font-weight: 200;
 }
 
 .yearly-calendar-week-pl p {
   text-align: center;
   font-size: 1rem;
-  font-family: var(--font-number);
+  font-family: var(--font-navbar);
   font-weight: 700;
 }
 
@@ -199,13 +197,6 @@
   }
   
   
-  .yearly-calendar-cell-blank_img {
-    position: relative;
-    height: 0.5rem;
-    opacity: 50%;
-    z-index: 1;
-  }
-  
   
   .yearly-calendar-cell-blank_content p {
     font-size: 0.5rem;
@@ -222,9 +213,9 @@
   
   .yearly-calendar-cell-day p {
     font-size: 0.5rem;
-    bottom: 1rem;
-    left: 1.25rem;
-    font-weight: 500;
+    bottom: 0.9rem;
+    left: 1.2rem;
+    font-weight: 400;
   }
   
 

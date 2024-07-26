@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from "./firebaseConfig";
 import "./dailyCalender.css";
-import dayPhoto from "./assets/day-temp.png";
+import dayPhoto from "./assets/day-temp.jpg";
 
 const DailyCalendar = ({ date }) => {
   const [currentDate, setCurrentDate] = useState(date);
@@ -32,19 +32,14 @@ const DailyCalendar = ({ date }) => {
       const year = date.getFullYear();
       const id = date.getDate();
 
-      // const options = {
-      //   day: "2-digit",
-      //   month: "short",
-      //   year: "numeric",
-      // };
-      // const formattedDate = currentDate.toLocaleDateString("en-US", options);
 
-      const dateFormatOptions = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      };
-      const dateToShow = new Intl.DateTimeFormat('en-US', dateFormatOptions).format(currentDate);
+      // Get individual components
+      const day = currentDate.getDate();
+      const month = currentDate.toLocaleString('en-US', { month: 'long' }).toUpperCase();
+      const yearl = currentDate.getFullYear();
+
+      // Concatenate as needed
+      const dateToShow = `${day} ${month} ${yearl}`;
 
       let collectionName = `${shortMonth}${year}`;
 
@@ -81,8 +76,8 @@ const DailyCalendar = ({ date }) => {
   return (
     <div className="daily-calendar-container">
       <div className="daily-calender-header">
-        <button onClick={goToPreviousDay}>&lt; Previous</button>
-        <h2>{currentDate.toDateString()}</h2>
+        <button onClick={goToPreviousDay}>&lt; Prev</button>
+        <h2>{currentDate.toDateString().toUpperCase()}</h2>
         <button onClick={goToNextDay}>Next &gt;</button>
       </div>
       {Object.keys(dailyData).length !== 0 ? (
@@ -106,7 +101,7 @@ const DailyCalendar = ({ date }) => {
         </>
       ) : (
         <>
-          <h2 className="daily-calender-no-data">No Data to Show !</h2>
+          <h2 className="daily-calender-no-data">NO DATA TO SHOW !</h2>
         </>
       )}
     </div>

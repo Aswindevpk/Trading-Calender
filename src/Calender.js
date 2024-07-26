@@ -5,7 +5,10 @@ import { collection, getDocs } from '@firebase/firestore';
 import Main from './main';
 import { useNavigate, useLocation } from 'react-router-dom';
 import logo from "./assets/logo.png";
-import temp from "./assets/day_template.png"
+import temp from "./assets/day_template.png";
+import no_data from "./assets/no-data.jpg";
+import footer_text from "./assets/footer_text.svg";
+import footer_head from "./assets/footer_head.svg";
 
 
 const daysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
@@ -130,7 +133,7 @@ const Calendar = ({date}) => {
     <div className="calender-container">
       <div className="calender-header">
         <button onClick={goToPreviousMonth}>&lt; Prev</button>
-        <h2>{`${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`}</h2>
+        <h2>{`${new Date(year, month).toLocaleString('default', { month: 'long' }).toUpperCase()} ${year}`}</h2>
         <button onClick={goToNextMonth}>Next &gt;</button>
       </div>
       <table className="calender-table">
@@ -179,14 +182,14 @@ const Calendar = ({date}) => {
                           <div className='calendar-cell-blank_content'>
                             <p className='gradient__day'>{day.day}</p>
                           </div>
-                          <img className='calendar-cell-blank_img' src={logo} alt="Your Photo" ></img>
+                          <img className='calendar-cell-blank_img' src={no_data} alt="Your Photo" ></img>
                         </div>
                       </>
                       }
                     </>
                       : <>
                         <div className='calendar-cell-blank' style={{ backgroundColor: '#191919' }}>
-                          <img className="calendar-cell-blank_img " src={logo} alt="Your Photo" ></img>
+                          <img className="calendar-cell-blank_img " src={no_data} alt="Your Photo" ></img>
                         </div>
                       </>
                     }
@@ -205,12 +208,11 @@ const Calendar = ({date}) => {
               {index === 0 && (
                 <td rowSpan='6'>
                   <div className='calendar-month-pl'>
-                    <h4 className='gradient__blue'>MONTH</h4>
-                    <h6 className='gradient__blue'>PROFIT & LOSS</h6><br></br>
+                    <h4>MONTH</h4>
+                    <h6>PROFIT & LOSS</h6><br></br>
                     <p className={`${Number(calculateSum(monthData)) < 0 ? "gradient__red" : "gradient__green"}`} >
                       {calculateSum(monthData) > 0 ? `+${calculateSum(monthData)}%` : `${calculateSum(monthData)}%`}</p><br></br>
-                    <h4 className='gradient__blue'>PROFIT</h4>
-                    <h6 className='gradient__blue'>TILL TODAY</h6>
+                    <h4 style={{ color: 'white' }}>PROFIT</h4>
                   </div>
                 </td>
               )}
@@ -218,10 +220,13 @@ const Calendar = ({date}) => {
           ))}
         </tbody>
       </table>
-      <div className='calendar-footer gradient__blue'>
-        <h3>SATURDAY, SUNDAY ARE NO TRADE IN FOREX MARKET</h3>
-        <h3>TELEGRAM</h3>
-        <h3>WHATSAPP</h3>
+      <div className='calendar-footer'>
+        <div className='calendar-footer_head'>
+          <img src={footer_head}></img>
+        </div>
+        <div className='calendar-footer_text'>
+          <img src={footer_text}></img>
+        </div>
       </div>
       {selectedDay && <Main data={selectedDay} view={'daily'} />}
     </div>
