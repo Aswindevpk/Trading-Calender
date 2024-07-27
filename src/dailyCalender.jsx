@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from "./firebaseConfig";
 import "./dailyCalender.css";
-import dayPhoto from "./assets/day-temp.jpg";
+import dayPhoto from "./assets/day-temp.png";
 
 const DailyCalendar = ({ date }) => {
   const [currentDate, setCurrentDate] = useState(date);
@@ -96,7 +96,7 @@ const DailyCalendar = ({ date }) => {
             <h3 className="header-date">{dailyData.date}</h3>
           </div>
           <div class="day-view">
-            <img class="photo" src={dayPhoto} alt="photo of the trading company"/>
+            <img class="photo" src={dayPhoto} alt=""/>
           </div>
         </>
       ) : (

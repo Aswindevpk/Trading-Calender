@@ -4,11 +4,8 @@ import db from './firebaseConfig';
 import { collection, getDocs } from '@firebase/firestore';
 import Main from './main';
 import { useNavigate, useLocation } from 'react-router-dom';
-import logo from "./assets/logo.png";
 import temp from "./assets/day_template.png";
 import no_data from "./assets/no-data.jpg";
-import footer_text from "./assets/footer_text.svg";
-import footer_head from "./assets/footer_head.svg";
 
 
 const daysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
@@ -220,14 +217,14 @@ const Calendar = ({date}) => {
           ))}
         </tbody>
       </table>
-      <div className='calendar-footer'>
+      {/* <div className='calendar-footer'>
         <div className='calendar-footer_head'>
           <img src={footer_head}></img>
         </div>
         <div className='calendar-footer_text'>
           <img src={footer_text}></img>
         </div>
-      </div>
+      </div> */}
       {selectedDay && <Main data={selectedDay} view={'daily'} />}
     </div>
   );

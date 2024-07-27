@@ -2,29 +2,29 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import toggleBar from "./assets/toggleBar.png";
 import toggleBarClose from "./assets/toggleBarClose.png";
-import t24logo from "./assets/T24logo.png"
-import calendarbutton from "./assets/calendarbutton.png"
+import calendarbutton from "./assets/calendarbutton.png";
+
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const Menu = () => (
     <>
       <p>
-        <a href="https://trilliontwentyfour.com">HOME CLAN</a>
+        <a href="#">HOME</a>
       </p>
       <p>
-        <a href="https://trilliontwentyfour.com/index.php/t24-master-clan/">TRILLION MASTER CLAN</a>
+        <a href="#">CALENDER</a>
       </p>
       <p>
-        <a href="https://calender.trilliontwentyfour.com/">
+        <a href="#">
         <img src={calendarbutton} alt="" />
         </a>
       </p>
       <p>
-        <a href="https://trilliontwentyfour.com/index.php/connect-our-clan/">CONNECT OUR CLAN</a>
+        <a href="#">CONTACT US</a>
       </p>
       <p>
-        <a href="https://trilliontwentyfour.com/index.php/t24-plans/">T24 PLANS</a>
+        <a href="#">ABOUT</a>
       </p>
     </>
   );
@@ -33,8 +33,8 @@ function Navbar() {
       <div className="navbar">
         <div className="navbar-links">
           <div className="navbar-links_logo">
-            <a href="https://trilliontwentyfour.com">
-            <img src={t24logo} alt="" />
+            <a href="#">
+            <img src="" alt="" />
             </a>
           </div>
           <div className="navbar-links_container">

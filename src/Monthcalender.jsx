@@ -1,7 +1,6 @@
 // MonthCalendar.jsx
 import React from "react";
 import "./Monthcalender.css";
-import logo from "./assets/logo.png";
 import temp from "./assets/day_template.png";
 import no_data from "./assets/no-data.jpg";
 import { useNavigate, useLocation } from 'react-router-dom';
